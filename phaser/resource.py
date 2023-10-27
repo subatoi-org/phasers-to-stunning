@@ -1,17 +1,13 @@
 import requests
-import json
 
 class Resource:
     def __init__(self):
-        self._url = "http://stapi.co/api"
-
-    def _url(self):
-        return getattr(self._url)
+        self._base_url = "http://stapi.co/api"
 
     def _build_url(self, path):
-        return self._url + path
+        return self._base_url + path
 
     def _get(self, path, payload=None):
         response = requests.get(self._build_url(path))
 
-        return response.json()
+        return response
